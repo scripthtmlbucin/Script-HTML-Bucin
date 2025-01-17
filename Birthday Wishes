@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #282c34;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    /* Container */
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: pulse 1.5s infinite;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+      opacity: 0.8;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.1);
+    }
+
+    /* Wish Container */
+    #wishContainer {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #ff4081;
+      opacity: 0;
+      transform: scale(0);
+      animation: appear 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        color: #ff4081;
+      }
+      50% {
+        transform: scale(1.1);
+        color: #ff9800;
+      }
+      100% {
+        transform: scale(1);
+        color: #ff4081;
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: scale(0);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="greeting">🎉 Happy Birthday, Bucin! 🎉</h1>
+    <p id="message">You're the light in my life, shining brighter every year. Wishing you all the best, today and always! 💖</p>
+    <button id="animateButton">Make a Wish!</button>
+    <div id="wishContainer"></div>
+  </div>
+
+  <script>
+    // When the page loads, we will animate the "Happy Birthday" text
+    window.onload = function() {
+      const greeting = document.getElementById('greeting');
+      greeting.classList.add('animate__fadeIn');
+    };
+
+    // Button to trigger a birthday wish
+    document.getElementById("animateButton").addEventListener("click", function() {
+      const wishContainer = document.getElementById("wishContainer");
+      wishContainer.innerHTML = "🎂 May your day be filled with love, joy, and endless smiles! 😘";
+      
+      // Trigger the animation for the wish text
+      wishContainer.style.animation = "appear 2s ease-in-out forwards";
+    });
+  </script>
+</body>
+</html>
